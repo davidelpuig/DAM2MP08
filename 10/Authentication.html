@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<!--meta {urls: [dam/m8/uf2], tags: [android, firebase]}-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Authentication</title>
+  <link rel="stylesheet" href="Authentication_fitxers/css.css">
+  <link rel="stylesheet" href="Authentication_fitxers/icon.css">
+  <link rel="stylesheet" href="Authentication_fitxers/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="Authentication_fitxers/analytics.js"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="authentication" environment="web" feedback-link="/dam-m8" selected="8" google-codelab-ready="" codelab-title="Authentication" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed=""><a href="#0"><span class="step"><span>Authentication</span></span></a></li><li completed=""><a href="#1"><span class="step"><span>Crea el proyecto</span></span></a></li><li completed=""><a href="#2"><span class="step"><span>Diseño de la Interfaz de Usuario</span></span></a></li><li completed=""><a href="#3"><span class="step"><span>Navegación</span></span></a></li><li completed=""><a href="#4"><span class="step"><span>Registro con email/password</span></span></a></li><li completed=""><a href="#5"><span class="step"><span>SignIn con email/password</span></span></a></li><li completed=""><a href="#6"><span class="step"><span>SignIn con Google</span></span></a></li><li completed=""><a href="#7"><span class="step"><span>Perfil de usuario</span></span></a></li><li completed="" selected=""><a href="#8"><span class="step"><span>Perfil de usuario en el Drawer</span></span></a></li><li><a href="#9"><span class="step"><span>SignOut</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="https://gerardfp.github.io/dam-m8"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://gerardfp.github.io/" id="arrow-back"><i class="material-icons">close</i></a><a href="#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">Authentication</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Authentication" duration="0" step="1"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Authentication</h2>
+        <p><a href="https://firebase.google.com/docs/auth/android/start" target="_blank">https://firebase.google.com/docs/auth/android/start</a></p>
+<h3 is-upgraded=""><a href="https://github.com/gerardfp/auhentication" target="_blank">https://github.com/gerardfp/auhentication</a></h3>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Crea el proyecto" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Crea el proyecto</h2>
+        <p>Selecciona "<strong>Navigation Drawer Activity</strong>" como plantilla para la activity principal.</p>
+<p class="image-container"><img style="width: 212.00px" src="Authentication_fitxers/c1ab005cc9375245.png"></p>
+<h2 is-upgraded="">Elimina el <em>Boilerplate</em> generado por el asistente:</h2>
+<ol type="1" start="1">
+<li>Elimina el package <sc>ui</sc>:<br><br><img style="width: 416.00px" src="Authentication_fitxers/52145a86bbbef209.gif"><br></li>
+<li>Borra las Top-Level destinations del fichero <sc>MainActivity.java</sc>:<br><br><img style="width: 511.00px" src="Authentication_fitxers/5e01ee9fcbacf5fc.gif"><br></li>
+<li>Borra los archivos de layout de los fragments:<br><br><img style="width: 216.00px" src="Authentication_fitxers/2e1f13eec7c52b5b.gif"><br></li>
+<li>Borra todos los <sc>item</sc> del fichero <sc>menu/activity_main_drawer.xml<br></sc></li>
+<li>Borra todos los fragment del fichero <sc>navigation/mobile_navigation.xml</sc><br><br>Borra tambien el atributo <sc>app:startDestination="@+id/nav_home"</sc></li>
+</ol>
+<h2 is-upgraded="">Connecta la app a Firebase</h2>
+<ol type="1" start="1">
+<li>Selecciona <strong><sc>Herramientas</sc></strong><strong> &gt; </strong><strong><sc>Firebase</sc></strong> para abrir la ventana del <strong>Asistente</strong>.</li>
+<li>Haz clic en <strong>Authentication</strong>, y luego en "<strong>Email and password authentication</strong>".<br></li>
+</ol>
+<p class="image-container"><img style="width: 546.00px" src="Authentication_fitxers/a8dac09c5136e57a.png"></p>
+<ol type="1" start="3">
+<li>Haz clic en "<strong>Connect to Firebase</strong>"<br><br><img style="width: 339.00px" src="Authentication_fitxers/7e9110d209d0a785.png"><br>Selecciona una cuenta de Google y haz click en <img style="width: 103.00px" src="Authentication_fitxers/304cdd79c1e465a8.png"><br><br>En la ventana que aparece selecciona un proyecto existente o crea uno nuevo. Haz click en "<strong>Connect to Firebase</strong>"<br><br><img style="width: 673.00px" src="Authentication_fitxers/18cbdf472194f10.png"></li>
+</ol>
+<h2 is-upgraded="">Añade la Autenticacion con Firebase</h2>
+<ol type="1" start="1">
+<li>Haz clic en "<strong>Add Firebase Authentication to your app</strong>"<br><br><img style="width: 408.00px" src="Authentication_fitxers/3e2aed1459a22f33.png"></li>
+</ol>
+<p>Haz clic en "<strong>Accept changes</strong>"</p>
+<p class="image-container"><img style="width: 630.00px" src="Authentication_fitxers/a08c10e3b6236e96.png"></p>
+<ol type="1" start="2">
+<li>Ve a la Consola de Firebase: <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com</a> </li>
+</ol>
+<p>Accede al proyecto<br><img style="width: 308.00px" src="Authentication_fitxers/685bc69ddb77cba0.png"><br></p>
+<ol type="1" start="3">
+<li>Ve al apartado "<strong>Authentication</strong>" <br><br><img style="width: 245.00px" src="Authentication_fitxers/86215678c582fd98.png"><br></li>
+<li>Haz clic en "<strong>Setup sign-in method</strong>"<br><br> <img style="width: 191.00px" src="Authentication_fitxers/12a32cc1f08159d7.png"><br></li>
+<li>Activa "Email/Password" y "Google"<br><br><img style="width: 736.40px" src="Authentication_fitxers/81147dd7fba370f0.png"><br><img style="width: 736.40px" src="Authentication_fitxers/34207a9846fbf4b.png"></li>
+<li>Añade la siguiente dependencia en el archivo <sc>build.gradle (Module: app)<br></sc></li>
+</ol>
+<pre><sc>implementation 'com.google.android.gms:play-services-auth:17.0.0'</sc></pre>
+<p>Las dependencias del fichero build.gradle (Module: app) deberían quedar así:</p>
+<pre><sc>implementation fileTree(dir: 'libs', include: ['*.jar'])
+implementation 'androidx.appcompat:appcompat:1.1.0'
+implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+implementation 'com.google.android.material:material:1.0.0'
+implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+implementation 'androidx.navigation:navigation-fragment:2.1.0'
+implementation 'androidx.navigation:navigation-ui:2.1.0'
+implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+implementation 'com.google.firebase:firebase-auth:19.2.0'
+testImplementation 'junit:junit:4.12'
+androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+implementation 'com.google.android.gms:play-services-auth:17.0.0'</sc></pre>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Diseño de la Interfaz de Usuario" duration="0" step="3"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. Diseño de la Interfaz de Usuario</h2>
+        <h2 is-upgraded="">Destinaciones:</h2>
+<p>SignInFragment, SignOutFragment, RegisterFragment, ProfileFragment y HomeFragment</p>
+<p class="image-container"><img style="width: 492.00px" src="Authentication_fitxers/a353d84bc864c51d.png"></p>
+<h2 is-upgraded="">Archivos de Layout:</h2>
+<p><sc>fragment_sign_in.xml</sc>:</p>
+<p class="image-container"><img style="width: 281.00px" src="Authentication_fitxers/7010b64d6984ed93.png"></p>
+<pre><sc>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"&gt;
+
+   &lt;LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:gravity="center_vertical|center_horizontal"
+       android:id="@+id/signInForm"&gt;
+
+       &lt;TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Login with email/password"/&gt;
+       &lt;EditText
+           android:id="@+id/emailEditText"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Email"/&gt;
+       &lt;EditText
+           android:id="@+id/passwordEditText"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Password"/&gt;
+       &lt;Button
+           android:id="@+id/emailSignInButton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Sign In"/&gt;
+       &lt;TextView
+           android:id="@+id/gotoCreateAccountTextView"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Create account here"/&gt;
+
+       &lt;View
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:layout_margin="48dp"
+           android:background="@color/colorPrimaryDark"/&gt;
+
+       &lt;TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Login with your Google account"/&gt;
+       &lt;com.google.android.gms.common.SignInButton
+           android:id="@+id/googleSignInButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/&gt;
+   &lt;/LinearLayout&gt;
+  
+   &lt;ProgressBar
+       android:id="@+id/signInProgressBar"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</sc></pre>
+<p><sc>fragment_register.xml</sc>:</p>
+<p class="image-container"><img style="width: 283.00px" src="Authentication_fitxers/e2a2323f62a363a2.png"></p>
+<pre><sc>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".RegisterFragment"
+   android:orientation="vertical"&gt;
+
+   &lt;EditText
+       android:id="@+id/emailEditText"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Email"/&gt;
+
+   &lt;EditText
+       android:id="@+id/passwordEditText"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Password"/&gt;
+
+   &lt;Button
+       android:id="@+id/registerButton"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Create account"/&gt;
+
+&lt;/LinearLayout&gt;</sc></pre>
+<p><sc>fragment_profile.xml</sc>:<br></p>
+<pre><sc>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"&gt;
+
+   &lt;ImageView
+       android:id="@+id/photoImageView"
+       android:layout_width="254dp"
+       android:layout_height="wrap_content"/&gt;
+   &lt;TextView
+       android:id="@+id/displayNameTextView"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/&gt;
+   &lt;TextView
+       android:id="@+id/emailTextView"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" /&gt;
+&lt;/LinearLayout&gt;</sc></pre>
+<h2 is-upgraded="">Menu drawer:</h2>
+<pre><sc>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   tools:showIn="navigation_view"&gt;
+
+   &lt;group android:checkableBehavior="single"&gt;
+       &lt;item
+           android:id="@+id/homeFragment"
+           android:title="Home" /&gt;
+       &lt;item
+           android:id="@+id/profileFragment"
+           android:title="Perfil" /&gt;
+       &lt;item
+           android:id="@+id/signOutFragment"
+           android:title="Cerrar sesion" /&gt;
+   &lt;/group&gt;
+
+&lt;/menu&gt;</sc></pre>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Navegación" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Navegación</h2>
+        <p>Añadir el NavController en cada fragment:</p>
+<pre><sc>public class XXXXXXFragment extends Fragment {
+
+   NavController navController;   // &lt;-----------------
+
+   public XXXXXXFragment() {}
+
+   @Override
+   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+       return inflater.inflate(R.layout.fragment_XXXXXX, container, false);
+   }
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       super.onViewCreated(view, savedInstanceState);
+
+       navController = Navigation.findNavController(view);  // &lt;-----------------
+   }
+}</sc></pre>
+<p><sc>SignInFragment.java</sc>:</p>
+<p>Hacer que el enlace a "Create account here" lleve al RegisterFragment</p>
+<pre><sc>public class SignInFragment extends Fragment {
+
+   NavController navController;
+
+   // ...
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       super.onViewCreated(view, savedInstanceState);
+
+       navController = Navigation.findNavController(view);
+
+       view.findViewById(R.id.gotoCreateAccountTextView).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               navController.navigate(R.id.registerFragment);
+           }
+       });
+   }
+}</sc></pre>
+<p><sc>activity_main_drawer.xml</sc>:</p>
+<p>Añadir los siguientes items al menu:</p>
+<pre><sc>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   tools:showIn="navigation_view"&gt;
+
+   &lt;group android:checkableBehavior="single"&gt;
+       &lt;item
+           android:id="@+id/homeFragment"
+           android:title="@string/menu_home" /&gt;
+       &lt;item
+           android:id="@+id/profileFragment"
+           android:title="@string/menu_home" /&gt;
+       &lt;item
+           android:id="@+id/signOutFragment"
+           android:title="@string/menu_home" /&gt;
+   &lt;/group&gt;
+
+&lt;/menu&gt;</sc></pre>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Registro con email/password" duration="0" step="5"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Registro con email/password</h2>
+        <p>Guardar los EditText como variables de clase:</p>
+<pre><sc>public class RegisterFragment extends Fragment {
+   
+   private EditText emailEditText, passwordEditText;
+
+   // ...
+   
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       
+       // ...
+
+       emailEditText = view.findViewById(R.id.emailEditText);
+       passwordEditText = view.findViewById(R.id.passwordEditText);
+   }
+}</sc></pre>
+<p>Añadir el listener al boton <sc>registerButton</sc>:</p>
+<pre><sc>public class RegisterFragment extends Fragment {
+
+   // ...
+   private Button registerButton;
+
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       // ...
+
+       registerButton = view.findViewById(R.id.registerButton);
+
+       registerButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               crearCuenta();
+           }
+       });
+   }
+
+   private void crearCuenta() {
+
+   }
+}</sc></pre>
+<h2 is-upgraded="">crearCuenta()</h2>
+<p>El método <sc>crearCuenta()</sc> primero valida que se ha introducido un Email y Password en los campos de texto. </p>
+<p>Luego, llama al método <sc>createUserWithEmailAndPassword()</sc> con los valores email/password introducidos en ellos.</p>
+<p>Cuando se completa la creación del usuario, se ejecuta el método <sc>onComplete()</sc>.
+ En él miramos si el registro ha tenido éxito o no. Si ha tenido éxito, 
+navegamos al HomeFragment, y si ha habido algun error, lo mostramos al 
+usuario con un SnackBar.</p>
+<aside class="special"><p>El método createUserWithEmailAndPassword() creará el usuario y también hará el SIGN-IN automáticamente.</p>
+</aside>
+<p>Es interesante desactivar el boton de registro mientras se está 
+realizando el registro en Firebase, para que el usuario no le de dos 
+veces. Una vez termine el registro, se vuelve a activar el boton (Otra 
+opción sería ocultar el formulario con <sc>setVisibility(View.</sc><strong><em><sc>GONE)</sc></em></strong>, y mostrar con <sc>setVisibility(View.</sc><strong><em><sc>VISIBLE</sc></em></strong><sc>)</sc> un ProgressBar. Una vez termine el registro habría que mostrar de nuevo el formulario y ocultar el ProgressBar).  </p>
+<p>El primer paso es obtener el objeto <sc>FirebaseAuth</sc> que 
+contiene todos los métodos de la API. Normalmente lo declaramos como 
+variable de clase y lo inicializamos de primeras en el método <sc>onViewCreated()</sc>.</p>
+<pre><sc>public class RegisterFragment extends Fragment {
+
+   private FirebaseAuth mAuth;
+
+   // ...
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       // ...
+       mAuth = FirebaseAuth.getInstance();
+   }
+}</sc></pre>
+<p>Los métodos crearCuenta(), actualizarUI() y validarFormulario() quedan así:</p>
+<pre><sc>private void crearCuenta() {
+   if (!validarFormulario()) {
+       return;
+   }
+
+   registerButton.setEnabled(false);
+
+   mAuth.createUserWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
+           .addOnCompleteListener(requireActivity(), new OnCompleteListener&lt;AuthResult&gt;() {
+               @Override
+               public void onComplete(@NonNull Task&lt;AuthResult&gt; task) {
+                   if (task.isSuccessful()) {
+                       actualizarUI(mAuth.getCurrentUser());
+                   } else {
+                       Snackbar.make(requireView(), "Error: " + task.getException(), Snackbar.LENGTH_LONG).show();
+
+                   }
+                   registerButton.setEnabled(true);
+               }
+           });
+
+}
+
+private void actualizarUI(FirebaseUser currentUser) {
+   if(currentUser != null){
+       navController.navigate(R.id.homeFragment);
+   }
+}
+
+private boolean validarFormulario() {
+   boolean valid = true;
+
+   if (TextUtils.isEmpty(emailEditText.getText().toString())) {
+       emailEditText.setError("Required.");
+       valid = false;
+   } else {
+       emailEditText.setError(null);
+   }
+
+   if (TextUtils.isEmpty(passwordEditText.getText().toString())) {
+       passwordEditText.setError("Required.");
+       valid = false;
+   } else {
+       passwordEditText.setError(null);
+   }
+
+   return valid;
+}</sc></pre>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="SignIn con email/password" duration="0" step="6"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">6. SignIn con email/password</h2>
+        <p>Hacer los <sc>findViewById()</sc>:</p>
+<pre><sc>public class SignInFragment extends Fragment {
+   
+   // ...
+   
+   private EditText emailEditText, passwordEditText;
+   private Button emailSignInButton;
+   private LinearLayout signInForm;
+   private ProgressBar signInProgressBar;
+
+
+   // ...
+   
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       // ...
+       emailEditText = view.findViewById(R.id.emailEditText);
+       passwordEditText = view.findViewById(R.id.passwordEditText);
+       emailSignInButton = view.findViewById(R.id.emailSignInButton);
+       signInForm = view.findViewById(R.id.signInForm);
+       signInProgressBar = view.findViewById(R.id.signInProgressBar);
+   }
+}</sc></pre>
+<p>Añadir el listener al botón <sc>emailSignIn</sc>:</p>
+<pre><sc>public class SignInFragment extends Fragment {
+
+   // ...
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       
+       // ...
+
+       emailSignInButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               accederConEmail();
+           }
+       });
+   }
+
+   private void accederConEmail() {
+
+   }
+}</sc></pre>
+<p>Obtener el manejador de la Auth API:</p>
+<pre><sc>public class SignInFragment extends Fragment {
+
+   // ...
+   private FirebaseAuth mAuth;
+
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       
+       // ...
+
+       mAuth = FirebaseAuth.getInstance();
+
+       // ...
+   }
+}</sc></pre>
+<p>El método <sc>accederConEmail()</sc> llamará al método <sc>signInWithEmailAndPassword()</sc> pasándole el email/password introducidos. Una vez finalizado el proceso de SignIn, se ejecuta el método <sc>onComplete()</sc> del listener. En él, miramos si se ha hecho el SignIn correctamente o no. Si ha tenido éxito, llamamos a <sc>actualizarUI()</sc>, para navegar al HomeFragment. I si ha habido algun error lo mostramos en un SnackBar.</p>
+<p>Antes de iniciar el SignIn hemos ocultado el formulario de acceso y 
+mostrado el ProgressBar. Cuando finaliza el SIgnIn, volvemos a mostrar 
+el formulario y ocultar el ProgressBar.</p>
+<p>Los métodos <sc>accederConEmail()</sc> y <sc>actualizarUI()</sc> quedan así:</p>
+<pre><sc>public class SignInFragment extends Fragment {
+   // ...
+
+   private void accederConEmail() {
+       signInForm.setVisibility(View.GONE);
+       signInProgressBar.setVisibility(View.VISIBLE);
+
+       mAuth.signInWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
+               .addOnCompleteListener(requireActivity(), new OnCompleteListener&lt;AuthResult&gt;() {
+                   @Override
+                   public void onComplete(@NonNull Task&lt;AuthResult&gt; task) {
+                       if (task.isSuccessful()) {
+                           actualizarUI(mAuth.getCurrentUser());
+                       } else {
+                           Snackbar.make(requireView(), "Error: " + task.getException(), Snackbar.LENGTH_LONG).show();
+                       }
+                       signInForm.setVisibility(View.VISIBLE);
+                       signInProgressBar.setVisibility(View.GONE);
+                   }
+               });
+   }
+
+   private void actualizarUI(FirebaseUser currentUser) {
+       if(currentUser != null){
+           navController.navigate(R.id.homeFragment);
+       }
+   }
+}</sc></pre>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="SignIn con Google" duration="0" step="7"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">7. SignIn con Google</h2>
+        <p>FindViewById y OnClickListener:</p>
+<pre><sc>public class SignInFragment extends Fragment {
+
+   private SignInButton googleSignInButton;
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+       googleSignInButton = view.findViewById(R.id.googleSignInButton);
+
+       googleSignInButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               accederConGoogle();
+           }
+       });
+   }
+
+   private void accederConGoogle() {
+      
+   }</sc></pre>
+<p>}</p>
+<p>El acceso con cuenta de Google se realiza en dos pasos: (1) Acceder 
+con la cuenta de Google y (2) Usar las credenciales de esta cuenta para 
+acceder a Firebase.</p>
+<ol type="1" start="1">
+<li>Acceder con la cuenta de Google:<br></li>
+</ol>
+<pre><sc>private void accederConGoogle() {
+   GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(requireActivity(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+           .requestIdToken(getString(R.string.default_web_client_id))
+           .requestEmail()
+           .build());
+
+   startActivityForResult(googleSignInClient.getSignInIntent(), 12345);
+}
+
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+   super.onActivityResult(requestCode, resultCode, data);
+
+   if (requestCode == 12345) {
+       try {
+         firebaseAuthWithGoogle(GoogleSignIn.getSignedInAccountFromIntent(data).getResult(ApiException.class));
+       } catch (ApiException e) {
+           Log.e("ABCD", "signInResult:failed code=" + e.getStatusCode());
+       }
+   }
+}
+
+private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {</sc></pre>
+<p>}</p>
+<ol type="1" start="2">
+<li>Usar la cuenta de google para acceder a Firebase<br></li>
+</ol>
+<pre><sc>private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+   if(acct == null) return;
+
+   signInProgressBar.setVisibility(View.VISIBLE);
+   signInForm.setVisibility(View.GONE);
+
+   mAuth.signInWithCredential(GoogleAuthProvider.getCredential(acct.getIdToken(), null))
+           .addOnCompleteListener(requireActivity(), new OnCompleteListener&lt;AuthResult&gt;() {
+               @Override
+               public void onComplete(@NonNull Task&lt;AuthResult&gt; task) {
+                   if (task.isSuccessful()) {
+                       Log.e("ABCD", "signInWithCredential:success");
+                       actualizarUI(mAuth.getCurrentUser());
+                   } else {
+                       Log.e("ABCD", "signInWithCredential:failure", task.getException());
+                       signInProgressBar.setVisibility(View.GONE);
+                       signInForm.setVisibility(View.VISIBLE);
+                   }
+               }
+           });
+}</sc></pre>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Perfil de usuario" duration="0" step="8"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">8. Perfil de usuario</h2>
+        <p>Podemos obtener los datos de la cuenta de Google del usuario 
+(foto, nombre, etc.). Sin embargo para los usuarios que acceden con 
+email/password, el usuario nos tendría que dar esa información y 
+guardarla en la base de datos.</p>
+<p>Para obtener los datos del usuario actual, usamos los <em>getters </em>del FirebaseUser que nos devuelve <sc>FirebaseAuth.</sc><em><sc>getInstance</sc></em><sc>().getCurrentUser()</sc>.</p>
+<aside class="warning"><p>Para cargar la Foto de perfil, añade las dependencias de <a href="https://github.com/bumptech/glide" target="_blank">Glide</a>:</p>
+<p><sc>implementation </sc><strong><sc>'com.github.bumptech.glide:glide:4.11.0'</sc></strong></p>
+<p><sc>annotationProcessor </sc><strong><sc>'com.github.bumptech.glide:compiler:4.11.0'</sc></strong></p>
+<p>Añade también el permiso de INTERNET en el <sc>AndroidManifest.xml</sc>:</p>
+<p><sc>&lt;</sc><strong><sc>uses-permission android:name="android.permission.INTERNET"</sc></strong><sc>/&gt;</sc></p>
+</aside>
+<p>El código del <sc>ProfileFragment</sc>, quedaría así (a falta de guardar la info del usuario en la base de datos):</p>
+<pre><sc>public class ProfileFragment extends Fragment {
+
+   ImageView photoImageView;
+   TextView displayNameTextView, emailTextView;
+
+   public ProfileFragment() {}
+
+
+   @Override
+   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+       return inflater.inflate(R.layout.fragment_profile, container, false);
+   }
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       super.onViewCreated(view, savedInstanceState);
+
+       photoImageView = view.findViewById(R.id.photoImageView);
+       displayNameTextView = view.findViewById(R.id.displayNameTextView);
+       emailTextView = view.findViewById(R.id.emailTextView);
+
+       FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+       if(user != null){
+           displayNameTextView.setText(user.getDisplayName());
+           emailTextView.setText(user.getEmail());
+
+           Glide.with(requireView()).load(user.getPhotoUrl()).into(photoImageView);
+       }
+   }
+}</sc></pre>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Perfil de usuario en el Drawer" duration="0" step="9" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">9. Perfil de usuario en el Drawer</h2>
+        <p class="image-container"><img style="width: 267.00px" src="Authentication_fitxers/d4b77252eae135f0.png"></p>
+<p>Para mostrar el perfil del usuario en el NavigationView (<em>Drawer</em>), tendremos que poner el código en la MainActivity, ya que es en ella donde esta el NavigationView.</p>
+<p>Añade el siguiente código en el metodo <sc>onCreate()</sc>:</p>
+<pre><sc>View header = navigationView.getHeaderView(0);
+final ImageView photo = header.findViewById(R.id.photoImageView);
+final TextView name = header.findViewById(R.id.displayNameTextView);
+final TextView email = header.findViewById(R.id.emailTextView);
+
+FirebaseAuth.getInstance().addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+   @Override
+   public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+       FirebaseUser user = firebaseAuth.getCurrentUser();
+
+       if(user != null){
+           Glide.with(MainActivity.this)
+                   .load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString())
+                   .circleCrop()
+                   .into(photo);
+           name.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+           email.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+       }
+   }
+});</sc></pre>
+<aside class="warning"><p>Añade los ids necesarios en el fichero <sc>layout/nav_header_main.xml</sc></p>
+</aside>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="SignOut" duration="0" step="10"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">10. SignOut</h2>
+        <p>El SignOutFragment, es solamente un fragment "de paso" en el 
+que se cierra la sesión, tanto de Google como de Firebase, y se vuelve 
+al SignInFragment:</p>
+<pre><sc>public class SignOutFragment extends Fragment {
+
+
+   public SignOutFragment() { }
+
+   @Override
+   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+       return inflater.inflate(R.layout.fragment_sign_out, container, false);
+   }
+
+   @Override
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       super.onViewCreated(view, savedInstanceState);
+
+       GoogleSignIn.getClient(requireActivity(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+               .requestIdToken(getString(R.string.default_web_client_id))
+               .build()).signOut();
+
+       FirebaseAuth.getInstance().signOut();
+
+       Navigation.findNavController(view).navigate(R.id.signInFragment);
+   }
+}</sc></pre>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="#" id="previous-step" title="Previous step">Back</a><div class="spacer"></div><a href="#" id="next-step" title="Next step">Next</a><a href="https://gerardfp.github.io/" id="done" title="Codelab complete" hidden="">Done</a></div></div></div></google-codelab>
+
+  <script src="Authentication_fitxers/native-shim.js"></script>
+  <script src="Authentication_fitxers/custom-elements.js"></script>
+  <script src="Authentication_fitxers/prettify.js"></script>
+  <script src="Authentication_fitxers/codelab-elements.js"></script>
+
+
+
+</body></html>
